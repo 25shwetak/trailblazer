@@ -1,0 +1,7 @@
+= link_to 'register', new_user_path
+= link_to 'login', login_path
+%br
+- users.each do |user|
+  = user.email
+  %br
+  
