@@ -5429,3 +5429,233 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 6837)
 
 
+Started GET "/login" for ::1 at 2020-07-17 05:42:22 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 6031)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:42:25 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:8:in `__tilt_47004144936500'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 9.8ms | ActiveRecord: 0.6ms | Allocations: 11584)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 05:42:27 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 14330)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:47:22 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936220'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 7108)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:47:37 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936360'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 0.3ms | Allocations: 7084)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:47:56 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936220'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 7088)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 05:48:24 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 14483)
+
+
+Started GET "/login" for ::1 at 2020-07-17 05:48:54 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 5724)
+
+
+Started GET "/login" for ::1 at 2020-07-17 05:49:00 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 5730)
+
+
+Started POST "/login" for ::1 at 2020-07-17 05:49:06 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"1Ndc+lb6+a1yPzptnEEJ0eGEHk2Ly1aPoQDXTUf7AIHly76ECwS5PpyJ1kV4tLpZb5krNZ715/5o62I9qaVx5A==", "email"=>"shweta@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/show.rb:5:in `find'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 488ms (ActiveRecord: 0.3ms | Allocations: 4551)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 05:49:07 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 9.3ms | ActiveRecord: 1.4ms | Allocations: 7335)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 05:49:10 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 992)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:49:10 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936360'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 7124)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 05:49:36 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 14497)
+
+
+Started POST "/users" for ::1 at 2020-07-17 05:50:05 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"HLEYtOROmClQlCjtbHVH2P/i40HOOsXQnNfCHfoLgmk0bIPGQ2xbMdCW6lxnRDVlpsmf56L6OvF3Sq03wNFU6A==", "user"=>{"name"=>"saurav", "email"=>"saurav@gmail.com", "mobile_number"=>"8698628558", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "saurav@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698628558"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "saurav"], ["email", "saurav@gmail.com"], ["mobile_number", "8698628558"], ["password_digest", "$2a$12$SIpyVupqisTRL7JWPSDaL.VYh7u60t6ldGWNjKWHFTpNlVLaMfbQ."], ["created_at", "2020-07-17 00:20:06.182750"], ["updated_at", "2020-07-17 00:20:06.182750"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (67.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 560ms (ActiveRecord: 68.9ms | Allocations: 8451)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 05:50:06 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 5.4ms | ActiveRecord: 0.2ms | Allocations: 7048)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 05:50:08 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 14513)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 05:50:12 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 1001)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:50:12 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936020'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 7122)
+
+
+Started GET "/login" for ::1 at 2020-07-17 05:50:19 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 5986)
+
+
+Started POST "/login" for ::1 at 2020-07-17 05:50:35 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"TyHE5DuBlBh1INYtmMKDWHJ9LhkScDuxcaCdFYVgag9+PSaaZn/Ui5uWOgV8NzDQ/GAbYQdOisC4Syhlaz4bag==", "email"=>"saurav@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "saurav@gmail.com"], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/show.rb:5:in `find'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 480ms (ActiveRecord: 0.2ms | Allocations: 1537)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 05:50:36 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 7032)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 05:50:38 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 987)
+
+
+Started GET "/users" for ::1 at 2020-07-17 05:50:38 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47004144936700'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 7126)
+
+
