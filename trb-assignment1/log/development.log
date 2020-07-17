@@ -5659,3 +5659,963 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 7126)
 
 
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-07-17 18:04:51 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47061924721660'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1003ms (Views: 854.6ms | ActiveRecord: 0.9ms | Allocations: 17557)
+
+
+Started GET "/login" for ::1 at 2020-07-17 18:04:59 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 6599)
+
+
+Started POST "/login" for ::1 at 2020-07-17 18:05:07 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Rfnn0zX2MaTQCUy4O/WAYL5Xm/tDHX089cbb8naWBdlr/oj0mAKVZTvnBf+r3xbuDscd8OpcRnCpWqUwQdrzfA==", "email"=>"shweta@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/show.rb:5:in `find'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 305ms (ActiveRecord: 0.5ms | Allocations: 2541)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:05:08 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 7336)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 18:05:10 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 575ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 21763)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:06:10 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"y0YFGvk3kFc4Gg3F52tUlUi55wLHN9YzKC26wDXtoDpamTjol9m2VqSNqMGTgG+KG2VhD4IUiYI1eStXHjH09A==", "user"=>{"name"=>"varsha", "email"=>"varsha@gmail.com", "mobile_number"=>"9876034572", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "varsha@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "9876034572"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (9.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "varsha"], ["email", "varsha@gmail.com"], ["mobile_number", "9876034572"], ["password_digest", "$2a$12$9jvEuvBFBB.irER6Tb/P/uJV2/Bf8tivK/djZRwmC.rivt3ggYa6S"], ["created_at", "2020-07-17 12:36:10.566061"], ["updated_at", "2020-07-17 12:36:10.566061"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 337ms (ActiveRecord: 74.0ms | Allocations: 8743)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:06:10 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 7073)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:06:13 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 983)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:06:13 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47061924721940'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 7162)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 10]]
+  [1m[35m (1042.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 11]]
+  [1m[35m (1175.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+  [1m[35m (396.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 13]]
+  [1m[35m (406.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 14]]
+  [1m[35m (84.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 15]]
+  [1m[35m (351.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 16]]
+  [1m[35m (370.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropUsersTable (20200717125028)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200717125028"]]
+  [1m[35m (117.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200717125538)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "mobile_number" varchar, "password_digest" varchar)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200717125538"]]
+  [1m[35m (1144.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-07-17 18:27:25 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46998956046820'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 12816)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 18:27:28 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 25086)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:27:48 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"xSjL7UJObxE9dYAjphmNsywaaxVSLEhH1BU3NBjtdtRU9/YfLKBJEKHiJSfS8rasf8btGBcPF/bJQaajMzEiGg==", "user"=>{"name"=>"shweta", "email"=>"shweta@gmail.com", "mobile_number"=>"9807527717", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "9807527717"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "shweta"], ["email", "shweta@gmail.com"], ["mobile_number", "9807527717"], ["password_digest", "$2a$12$ZrRizHGFFmCmO1/iGDGcW.n4aiBzFhIMtD3EkaHcRqgt9iYNMv8YC"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (67.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 342ms (ActiveRecord: 67.9ms | Allocations: 9115)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:27:48 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 7377)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:27:51 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1065)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:27:51 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46998956046680'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 7036)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/new" for ::1 at 2020-07-17 18:31:06 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 11.8ms | ActiveRecord: 0.6ms | Allocations: 30785)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:31:28 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"uSzIuGsl/+kSTommnNokJ5XszoHEQIE2ySL89AQjsCMbdxKP6DHfIiBRDtrx9/26GI2qOTsUjxVRl8az46cJAw==", "user"=>{"name"=>"shaanvi", "email"=>"shaanvi@gmail.com", "mobile_number"=>"9991967883", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shaanvi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "9991967883"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "shaanvi"], ["email", "shaanvi@gmail.com"], ["mobile_number", "9991967883"], ["password_digest", "$2a$12$H1kXmDfBoA7AQK/92gSyeO5CRsF0FZWCArVz0f.ZSsBWbfkIW0PZW"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (1770.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 2024ms (ActiveRecord: 1771.4ms | Allocations: 9186)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:31:30 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 7388)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:31:33 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1062)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:31:33 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47099118581960'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 7117)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2020-07-17 18:32:49 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013480'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 9.7ms | ActiveRecord: 0.9ms | Allocations: 16125)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 18:32:52 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 21818)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:33:12 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"bASFqDhJ7MpO8gsZGhn9Am+gAr4RBwy9M6Kmc3F5CGb927haVqfKy9Jlrh1u8sYdPHyEs1QkUwwu9jfkWqVcqA==", "user"=>{"name"=>"Priti", "email"=>"priti@gmail.com", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "priti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "Priti"], ["email", "priti@gmail.com"], ["mobile_number", "8698618356"], ["password_digest", "$2a$12$liKwHg7DLPq9/4fv1ERlw.ifM6CoPTAZ0ZeE66w3iJ017xQ6Qt9Ne"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (1513.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 1813ms (ActiveRecord: 1514.1ms | Allocations: 11694)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:33:14 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 7360)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:33:16 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1065)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:33:16 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180014080'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 7076)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimestampToUsersTable (20200717131150)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "mobile_number" varchar DEFAULT NULL, "password_digest" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","email","mobile_number","password_digest")
+                     SELECT "id","name","email","mobile_number","password_digest" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "mobile_number" varchar DEFAULT NULL, "password_digest" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id","name","email","mobile_number","password_digest")
+                     SELECT "id","name","email","mobile_number","password_digest" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTimestampToUsersTable (20200717131150)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "mobile_number" varchar DEFAULT NULL, "password_digest" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","email","mobile_number","password_digest")
+                     SELECT "id","name","email","mobile_number","password_digest" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "email" varchar DEFAULT NULL, "mobile_number" varchar DEFAULT NULL, "password_digest" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id","name","email","mobile_number","password_digest")
+                     SELECT "id","name","email","mobile_number","password_digest" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/users" for ::1 at 2020-07-17 18:44:46 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013200'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 9.1ms | ActiveRecord: 0.6ms | Allocations: 7070)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 18:44:49 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 14494)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:45:10 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"tlyOZe6N7CeT2yz+S30hdYpY6WMsMIkbBuYnyILvrJUng7OXgGPKJg9Mifo/lhpq2YRvbmkT1qobsrZfqTP4Ww==", "user"=>{"name"=>"anamika", "email"=>"anamika@gmail.com", "mobile_number"=>"8688618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "anamika@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8688618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "anamika"], ["email", "anamika@gmail.com"], ["mobile_number", "8688618356"], ["password_digest", "$2a$12$KR2yVfa5RRd6SQ6yKaBqC.oSaco4ZR4g1DrbSkkO9DJOzsJWfNY.."]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (63.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 330ms (ActiveRecord: 64.4ms | Allocations: 7700)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:45:10 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 7075)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:45:14 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 979)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:45:14 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013200'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 7086)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 18:46:30 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 14478)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:46:41 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mDERIglJ9EfW3edCsP4An5RJARuXP/oOMhpX98lU3bUJ7izQZ6fSRkpKQkbEFTuAx5WHFtIcpb8vTsZg4oiJew==", "user"=>{"name"=>"shweta", "email"=>"shweta@gmail.com", "mobile_number"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 21850)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:46:53 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"pTzx9RoGjz4a+z1ECM9nBQ1sNgrqO5iYxqoNMJfX++sHZyvCmRKv9Sjkujhl4r6YgA1SshVvlrteHzd3cFNCyw==", "user"=>{"name"=>"shweta", "email"=>"kshweta_16502@aitpune.edu.in", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kshweta_16502@aitpune.edu.in"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 19531)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:47:06 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"D6hufiDWq91QMBrYi3jss6zqA272z+L1zB/Erne0ks+t87RJo8KLFmIvnaTmVTUuIYtn1gmb7NZUqv7pkDAr7w==", "user"=>{"name"=>"shweta", "email"=>"kshweta_16502@aitpune.edu.in", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kshweta_16502@aitpune.edu.in"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 6.2ms | ActiveRecord: 0.3ms | Allocations: 18608)
+
+
+Started POST "/users" for ::1 at 2020-07-17 18:47:41 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Di4VjlDSxZvR7VUE8Kwwl7r+6PFARIziJ21aF6jiHpqsdc+508blUOPy0nidgekKN5+MSb8QgsG/2GBQT2anug==", "user"=>{"name"=>"saurav", "email"=>"saurav@gmail.com", "mobile_number"=>"7695638357", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "saurav@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "7695638357"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "saurav"], ["email", "saurav@gmail.com"], ["mobile_number", "7695638357"], ["password_digest", "$2a$12$lyHO59rQU/4g.7c2u.vBrOVKVK8k8OWFnLyAN3TYRH/2JcpndT.by"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (1300.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 1571ms (ActiveRecord: 1301.7ms | Allocations: 7750)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 18:47:43 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 7075)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 18:47:45 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 985)
+
+
+Started GET "/users" for ::1 at 2020-07-17 18:47:45 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180014320'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 7116)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropTable (20200717132324)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropTable (20200717132324)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200717132324"]]
+  [1m[35m (186.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200717133033)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "mobile_number" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200717133033"]]
+  [1m[35m (110.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-07-17 19:04:44 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013800'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 7478)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 19:04:47 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 17523)
+
+
+Started POST "/users" for ::1 at 2020-07-17 19:05:07 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"WegYCYOnKWVJwVTCyOWqyBjCPf1H2GZEBxfrS+wk1ifINyX77UkPZNVW8ca8DpHXSx678AL7OfUaQ3rcx/iC6Q==", "user"=>{"name"=>"shweta", "email"=>"shweta@gmail.com", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "shweta"], ["email", "shweta@gmail.com"], ["mobile_number", "8698618356"], ["password_digest", "$2a$12$Vqb724c/ZtbdQ9MooaX2U.K8bVolgpofiWunPIyBexrVkhILl2IWq"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.9ms | Allocations: 8399)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: users.created_at):
+  
+app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/users" for ::1 at 2020-07-17 19:09:54 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"AiKKxk67gUAzdDv49tsp0K5dkJJJjMwIW+QcaCRXiW2geVDxza+hiwFrvISb9vBNIzz0KrbYwivDUSYvw9MwTQ==", "user"=>{"name"=>"shweta", "email"=>"shweta@gmail.com", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "shweta"], ["email", "shweta@gmail.com"], ["mobile_number", "8698618356"], ["password_digest", "$2a$12$uA5ce8uHS3Lotcx1N8cQfuweFKs2yzb3GVPRCXNrK7IRAoDEFVbc."]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 0.9ms | Allocations: 7678)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: users.created_at):
+  
+app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "shweta"], ["email", "shweta@gmail.com"], ["mobile_number", "9807527717"], ["password_digest", "shweta"], ["created_at", "2020-07-17 13:53:21.284237"], ["updated_at", "2020-07-17 13:53:21.284237"]]
+  [1m[35m (927.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for ::1 at 2020-07-17 19:23:59 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013800'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 0.2ms | Allocations: 7055)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 19:24:03 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 14496)
+
+
+Started POST "/users" for ::1 at 2020-07-17 19:24:29 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"azl826lpdrfVIaLtNzmElSj2P4EYOw3hKwGJrFKfPLv65kEpx4dQtkm2B+lD0r+Keyq5jF0YUlA2VRg7eUNodQ==", "user"=>{"name"=>"shaanvi", "email"=>"shaanvi@gmail.com", "mobile_number"=>"8698618356", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shaanvi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "8698618356"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest") VALUES (?, ?, ?, ?)[0m  [["name", "shaanvi"], ["email", "shaanvi@gmail.com"], ["mobile_number", "8698618356"], ["password_digest", "$2a$12$/qkO0cwj5vp3Obx1bQCVyeq7ZqY0lDh2ooBYwQ1txGHfmQq0Dmtum"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 0.8ms | Allocations: 7710)
+
+
+  
+ActiveRecord::NotNullViolation (SQLite3::ConstraintException: NOT NULL constraint failed: users.created_at):
+  
+app/controllers/users_controller.rb:22:in `create'
+Started GET "/users" for ::1 at 2020-07-17 19:32:20 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180013480'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 7048)
+
+
+Started GET "/login" for ::1 at 2020-07-17 19:32:23 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 6507)
+
+
+Started POST "/login" for ::1 at 2020-07-17 19:32:43 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"sHedYDeytxoMzF9KaQonO/ppyALVDINlQcjC555gG2GecPJHmkYT2+ciFg35ILG1SvlOCXxNuCkdVLwlqSztxA==", "email"=>"shweta@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/show.rb:5:in `find'
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms | Allocations: 2183)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (105.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "mobile_number" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (93.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (69.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200717133033)[0m
+  [1m[35m (101.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200717132324);
+
+[0m
+  [1m[35m (81.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-17 14:05:12.395632"], ["updated_at", "2020-07-17 14:05:12.395632"]]
+  [1m[35m (70.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "0fa50584bcca5a84d8baa655852f0930b5b330bb"], ["created_at", "2020-07-17 14:05:12.479436"], ["updated_at", "2020-07-17 14:05:12.479436"]]
+  [1m[35m (578.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (88.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "mobile_number" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (89.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (116.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200717133033)[0m
+  [1m[35m (136.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200717132324);
+
+[0m
+  [1m[35m (105.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-17 14:05:13.619497"], ["updated_at", "2020-07-17 14:05:13.619497"]]
+  [1m[35m (129.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2020-07-17 14:05:13.757429"], ["key", "environment"]]
+  [1m[35m (81.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "0fa50584bcca5a84d8baa655852f0930b5b330bb"], ["created_at", "2020-07-17 14:05:13.845712"], ["updated_at", "2020-07-17 14:05:13.845712"]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-07-17 19:37:16 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180014320'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 0.4ms | Allocations: 7025)
+
+
+Started GET "/users" for ::1 at 2020-07-17 19:37:22 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_47009180014080'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 7005)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users" for ::1 at 2020-07-17 19:38:12 +0530
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46972154062280'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 0.4ms | Allocations: 12943)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 19:38:15 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 3.7ms | ActiveRecord: 0.6ms | Allocations: 26374)
+
+
+Started POST "/users" for ::1 at 2020-07-17 19:38:33 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"SdhMe38CTpjCEwhP8+9y/PyVlKd/AVwgSinEEi4xP1jYB3GJEexomV6ErUuHBEnjr0kSqjoiA5FXfVWFBe1rlg==", "user"=>{"name"=>"shweta", "email"=>"shweta@gmail.com", "mobile_number"=>"9807527717", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "9807527717"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "shweta"], ["email", "shweta@gmail.com"], ["mobile_number", "9807527717"], ["password_digest", "$2a$12$m/aG6x9vTUileNbUYpPE4eh0t4rQ2/YUsCN4cySJYbRqTPP3g2HI6"], ["created_at", "2020-07-17 14:08:33.783968"], ["updated_at", "2020-07-17 14:08:33.783968"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (406.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 688ms (ActiveRecord: 407.0ms | Allocations: 9298)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 19:38:34 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 7383)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 19:38:36 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1079)
+
+
+Started GET "/users" for ::1 at 2020-07-17 19:38:36 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46972154062620'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 7063)
+
+
+Started GET "/login" for ::1 at 2020-07-17 19:38:39 +0530
+Processing by SessionsController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 6500)
+
+
+Started POST "/login" for ::1 at 2020-07-17 19:38:46 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Qylcv8nzE5CA+Kezp+K7HbbRnsEf6Bfcux65ZpBBGkJtLjOYZAe3UWsW7vQ3yC2TBkEYyrapLJDngsekpw3s5w==", "email"=>"shweta@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shweta@gmail.com"], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/show.rb:5:in `find'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 255ms (ActiveRecord: 0.2ms | Allocations: 2024)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 19:38:46 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 3)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 7067)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 19:38:49 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 995)
+
+
+Started GET "/users" for ::1 at 2020-07-17 19:38:49 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46972154062820'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.1ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 7029)
+
+
+Started GET "/users/new" for ::1 at 2020-07-17 19:40:26 +0530
+Processing by UsersController#new as HTML
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 14485)
+
+
+Started POST "/users" for ::1 at 2020-07-17 19:40:46 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"4bn317WMCedZieuikhq0OgCeskoGidtcljTqgWQGuepwZsol22Iv5sUeTqbm8Y8lU0I0R0OqhO2LYHsWT9rtJA==", "user"=>{"name"=>"shaanvi", "email"=>"shaanvi@gmail.com", "mobile_number"=>"9991967883", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shaanvi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."mobile_number" = ? LIMIT ?[0m  [["mobile_number", "9991967883"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "mobile_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "shaanvi"], ["email", "shaanvi@gmail.com"], ["mobile_number", "9991967883"], ["password_digest", "$2a$12$onrfXEE0DphbzaGTE3DbPe4TwcR1dVpMFIiH8QBGCbdR1YZdHMfGO"], ["created_at", "2020-07-17 14:10:46.960846"], ["updated_at", "2020-07-17 14:10:46.960846"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Redirected to http://localhost:3000/welcome
+Completed 302 Found in 327ms (ActiveRecord: 65.1ms | Allocations: 7795)
+
+
+Started GET "/welcome" for ::1 at 2020-07-17 19:40:47 +0530
+Processing by UsersController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/concepts/user/operation/welcome.rb:7:in `return_user'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 7068)
+
+
+Started GET "/logout" for ::1 at 2020-07-17 19:40:49 +0530
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `present_user'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 995)
+
+
+Started GET "/users" for ::1 at 2020-07-17 19:40:49 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/concepts/user/view/index.haml:9:in `__tilt_46972154062820'
+  Rendering html template within layouts/application
+  Rendered html template within layouts/application (Duration: 0.0ms | Allocations: 2)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 7053)
+
+
