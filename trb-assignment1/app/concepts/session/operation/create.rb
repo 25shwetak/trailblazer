@@ -12,7 +12,7 @@ module Session::Operation
     end
 
     def blank_field(ctx, **)
-      puts "email and password cannot be blank"
+      puts "Email and Password cannot be blank"
     end
 
     def find_user(ctx, email:, **)

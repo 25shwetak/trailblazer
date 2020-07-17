@@ -1,6 +1,12 @@
-= simple_form_for form do |f|
-  = f.input :name
-  = f.input :email
-  = f.input :mobile_number
-  = f.input :password
-  = f.submit
+%center
+  %h1 Sing Up!!
+  = simple_form_for form do |f|
+    = f.input :name
+    %br
+    = f.input :email
+    %br
+    = f.input :mobile_number
+    %br
+    = f.input :password
+    %br
+    = f.submit

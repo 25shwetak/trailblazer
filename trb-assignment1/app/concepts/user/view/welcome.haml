@@ -1,9 +1,11 @@
-= link_to 'new', new_user_path
-= link_to 'logout', logout_path
-%br
-welcome 
-= user.name
-/ - users.each do |user|
-/   = user.email
-/   %br
-/   
+%center
+  %br
+  %h1 Hello !! 
+  = user.name
+  %br
+  %br
+  %br
+  = link_to 'add more users', new_user_path
+  %br
+  %br
+  = link_to 'logout', logout_path

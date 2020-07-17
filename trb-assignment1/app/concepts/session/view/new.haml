@@ -1,11 +1,13 @@
-%h1 Login
-= @error
-= form_tag '/login' do
-  = label_tag :email
-  = text_field_tag :email
-  %br/
-  = label_tag :password
-  = password_field_tag :password
-  %br/
-  %br/
-  = submit_tag "Login"
+%center
+  %h1 Login!!
+  = @error
+  = form_tag '/login' do
+    = label_tag :email
+    = text_field_tag :email
+    %br
+    %br
+    = label_tag :password
+    = password_field_tag :password
+    %br
+    %br
+    = submit_tag "Login"

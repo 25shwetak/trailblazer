@@ -1,7 +1,21 @@
-= link_to 'register', new_user_path
-= link_to 'login', login_path
-%br
-- users.each do |user|
-  = user.email
+%center
   %br
+  %br
+  %h2 Showing All Users
+  %br 
+  %br
+  %h3 Name ------- Phone Numbers ------- Emails
+  - users.each do |user|
+    = user.name
+    = '-------------'
+    = user.mobile_number
+    = '-------------'
+    = user.email
+    %br
+  %br
+  %br
+  = link_to 'Sign Up', new_user_path
+  %br
+  %br
+  = link_to 'Login', login_path
   

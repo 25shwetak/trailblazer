@@ -5,7 +5,6 @@ module User::Cell
     
     def form
       @options[:form]
-      # puts @options[:form]
     end
   end
 end
